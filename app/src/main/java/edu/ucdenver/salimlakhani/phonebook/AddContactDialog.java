@@ -15,7 +15,7 @@ import edu.ucdenver.salimlakhani.phonebook.databinding.DialogAddContactBinding;
 public class AddContactDialog extends DialogFragment {
     private DialogAddContactBinding binding;
 
-    public Dialog onCreateDialog (Bundle savedInstanceState) {
+    public Dialog onCreateDialog (Bundle savedInstanceState) { // this method creates alert dialog
 
         binding = DialogAddContactBinding.inflate(LayoutInflater.from(getContext()));
 

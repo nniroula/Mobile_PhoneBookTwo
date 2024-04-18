@@ -1,6 +1,8 @@
 package edu.ucdenver.salimlakhani.phonebook;
 
-
+/*
+    Modal class for data storage
+ */
 public class Contact {
 
     private int id;
@@ -14,6 +16,9 @@ public class Contact {
     private String zip;
     private String contacttype;
 
+    /*
+        Constructor
+    */
     public Contact(String name, String phone, String email, String address, String city, String state,String zip,String contacttype){
 
         this.id = 0;
@@ -27,6 +32,9 @@ public class Contact {
         this.contacttype=contacttype;
     }
 
+    /*
+        getters and setters
+    */
     public int getId () {
         return id;
     }

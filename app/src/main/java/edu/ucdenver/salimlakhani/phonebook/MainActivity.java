@@ -19,7 +19,7 @@ import edu.ucdenver.salimlakhani.phonebook.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private ArrayList<Contact> list;
+    private ArrayList<Contact> list;                // modal to be stored in arraylist
 
     private ContactAdapter contactAdapter;
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
 
-        list = new ArrayList<Contact>();
+        list = new ArrayList<Contact>();                    // contact modal
         contactAdapter = new ContactAdapter(this, list);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
 
                 AddContactDialog addContactDialog = new AddContactDialog();
