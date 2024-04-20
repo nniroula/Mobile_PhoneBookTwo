@@ -1,11 +1,17 @@
 package edu.ucdenver.salimlakhani.phonebook;
 
+
+import android.content.Context;
+//import android.content.Intent;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -17,27 +23,56 @@ import java.util.ArrayList;
 */
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ListItemHolder>  {
 
+// R
+//public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ListItemHolder>  {
+
     private MainActivity mainActivity;
     private ArrayList<Contact> list; // bring in conctact modal as arraylist
+
+    // D
+//    private ContactInfoShowInterface interf;
+    // end D
+
+    //E
+    Context context;
 
     // Constructor
     public ContactAdapter (MainActivity mainActivity, ArrayList<Contact> list) {
 
+    // P
+//    public ContactAdapter (MainActivity mainActivity, ArrayList<Contact> list, ContactInfoShowInterface interf) {
+
         this.mainActivity = mainActivity;
         this.list = list;
+//        this.interf = interf;
 
     }
 
     // return the layout of the list
     public ContactAdapter.ListItemHolder onCreateViewHolder (ViewGroup parent, int viewType ){
+
+    // Q
+//    public ContactAdapter.ListItemHolder onCreateViewHolder (ViewGroup parent, int viewType, ContactInfoShowInterface interf){
         View listItem = LayoutInflater.from (parent.getContext())
                 .inflate(R.layout.list_layout, parent, false);
 
         return new ListItemHolder(listItem);
+
+        // H
+//        return new ListItemHolder(listItem, interf);
     }
 
     // assigning values to the views we created in the recycler_view layout file
     // based on the position of the recycler view
+
+
+    // K
+//    @NonNull
+//    @Override
+//    public ListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//       // String name = .getStringExtra("Name");
+//        return null;
+//    }
 
     // bind the contact list item layout with our modal class
     public void onBindViewHolder (ContactAdapter.ListItemHolder holder, int position) {
@@ -68,6 +103,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ListItem
 
         // Constructor
         public ListItemHolder (View itemView) {
+
+        // O - its doubtful check it again
+
+//        public ListItemHolder (View itemView, ContactInfoShowInterface interf) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.textViewName);  // retrieve nameView by Id
             textViewName.setClickable(true);
@@ -82,6 +121,29 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ListItem
         }
 
         public void onClick (View view) {
+            // F
+
+            int pos = getAdapterPosition();
+//            interf.onNameClick(pos);
+            mainActivity.onNameClick(pos);
+
+            Log.i("Info", "MSG: onClick ContactAdapter clicked here .........................");
+
+//            if(interf != null){
+//                int pos = getAdapterPosition();
+//
+//                //  check that Recycler view position is valid
+//                if(pos != RecyclerView.NO_POSITION){
+//                    interf.onNameClick(pos);
+//                }
+//            }
+
+            //        Intent intent = new Intent(this, AddContactDialog.class);
+//            Intent intent;
+//            intent = new Intent(this, AddContactDialog.class);
+//            //intent.putExtra("Name", list.get(position).getName());
+//
+//            ContextCompat.startActivity(intent);
 
         }
     }
