@@ -3,7 +3,6 @@ package edu.ucdenver.salimlakhani.phonebook;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -14,8 +13,6 @@ public class ContactViewDialog extends DialogFragment {
     private DialogViewContactBinding binding;
     private Contact contact;
     private int position;
-
-    //
     private TextView textViewName;
     private TextView textViewPhone;
     private TextView textViewEmail;
@@ -54,8 +51,6 @@ public class ContactViewDialog extends DialogFragment {
         String city = contact.getCity();
         String state = contact.getState();
         String zip = contact.getZip();
-       // int zip = Integer.parseInt(contact.getZip());
-        Log.d("info", "MSG: ZIP code is " + zip);
         String contactType = contact.getContacttype();
 
         // set the values for fields
@@ -69,9 +64,9 @@ public class ContactViewDialog extends DialogFragment {
         textViewType.setText(contactType);
 
         binding.buttonDelete.setOnClickListener(new View.OnClickListener() {
+            // implement delete functionality
             @Override
             public void onClick(View view) {
-                // implement delete functionality
                 MainActivity mainActivity = (MainActivity) getActivity();
                 assert mainActivity != null;
                 mainActivity.removeContact(position);
