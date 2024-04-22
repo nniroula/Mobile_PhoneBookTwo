@@ -3,6 +3,7 @@ package edu.ucdenver.salimlakhani.phonebook;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -53,6 +54,8 @@ public class ContactViewDialog extends DialogFragment {
         String city = contact.getCity();
         String state = contact.getState();
         String zip = contact.getZip();
+       // int zip = Integer.parseInt(contact.getZip());
+        Log.d("info", "MSG: ZIP code is " + zip);
         String contactType = contact.getContacttype();
 
         // set the values for fields

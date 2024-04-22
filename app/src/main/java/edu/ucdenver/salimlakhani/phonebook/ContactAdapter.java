@@ -122,7 +122,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ListItem
 
         public void onClick (View view) {
             int pos = getAdapterPosition();
-            mainActivity.onNameClick(pos);
+            if(pos != RecyclerView.NO_POSITION){ // without this, zip keeps displaying hexadecimal number
+                mainActivity.onNameClick(pos);
+            }
+//            mainActivity.onNameClick(pos);
 
            // Log.i("Info", "MSG: onClick ContactAdapter clicked here .........................");
 

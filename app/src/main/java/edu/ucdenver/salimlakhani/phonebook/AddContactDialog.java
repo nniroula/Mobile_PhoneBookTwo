@@ -36,7 +36,8 @@ public class AddContactDialog extends DialogFragment {
                             String street = binding.textInputStreet.getText().toString();
                             String city = binding.textInputCity.getText().toString();
                             String state = binding.textInputState.getText().toString();
-                            String zip = binding.textInputZip.toString();
+                            //  String zip = binding.textInputZip.toString();
+                            String zip = binding.textInputZip.getText().toString();
 
                             String contactType = "";
 
@@ -61,6 +62,12 @@ public class AddContactDialog extends DialogFragment {
                             binding.textInputName.setText("");
                             binding.textInputPhone.setText("");
                             binding.textInputEmail.setText("");
+                            // My addition
+                            binding.textInputStreet.setText("");
+                            binding.textInputCity.setText("");
+                            binding.textInputState.setText("");
+                            binding.textInputZip.setText("");
+                            //End my addition
 
                             binding.radioButtonBusiness.setChecked(true);
                             binding.textInputName.requestFocus();
