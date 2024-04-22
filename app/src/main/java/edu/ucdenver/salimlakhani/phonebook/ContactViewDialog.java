@@ -12,7 +12,7 @@ import edu.ucdenver.salimlakhani.phonebook.databinding.DialogViewContactBinding;
 public class ContactViewDialog extends DialogFragment {
     private DialogViewContactBinding binding;
     private Contact contact;
-    private int position;
+    private int contactIndexInRecyclerView; // to hold contact view holder position
     private TextView textViewName;
     private TextView textViewPhone;
     private TextView textViewEmail;
@@ -22,9 +22,9 @@ public class ContactViewDialog extends DialogFragment {
     private TextView textViewZip;
     private TextView textViewType;
 
-    public ContactViewDialog( Contact contact, int position) {
-        this.contact = contact;
-        this.position = position;
+    public ContactViewDialog( Contact contactInfo, int contactIndexInArrayList) {
+        this.contact = contactInfo;
+        this.contactIndexInRecyclerView = contactIndexInArrayList;
     }
     @Override
     public Dialog onCreateDialog (Bundle savedInstanceState){
@@ -67,10 +67,9 @@ public class ContactViewDialog extends DialogFragment {
             // implement delete functionality
             @Override
             public void onClick(View view) {
-                MainActivity mainActivity = (MainActivity) getActivity();
-                assert mainActivity != null;
-                mainActivity.removeContact(position);
-
+                MainActivity mainActivityFragment = (MainActivity) getActivity();
+                assert mainActivityFragment != null;
+                mainActivityFragment.removeContact(contactIndexInRecyclerView);
                 dismiss();
             }
         });
