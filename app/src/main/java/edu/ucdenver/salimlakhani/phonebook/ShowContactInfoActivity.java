@@ -3,11 +3,9 @@
 package edu.ucdenver.salimlakhani.phonebook;
 
 import static com.google.android.material.internal.ContextUtils.getActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.BundleCompat;
 import androidx.fragment.app.DialogFragment;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -16,14 +14,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import edu.ucdenver.salimlakhani.phonebook.databinding.ActivityMainBinding;
 
 public class ShowContactInfoActivity extends AppCompatActivity {
 //public class ShowContactInfoDialog extends DialogFragment {
-
     // private ActivityMainBinding binding;
     private TextView textViewName;
     private TextView textViewPhone;
@@ -35,7 +30,6 @@ public class ShowContactInfoActivity extends AppCompatActivity {
     private TextView textViewType;
 
     Intent intent = getIntent();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +71,6 @@ public class ShowContactInfoActivity extends AppCompatActivity {
         textViewType.setText(contactType);
 
         // delete button
-
         // get delete button - findviewbyId
         // use list method delete to delete a contact, and dismiss()
 
@@ -97,11 +90,43 @@ public class ShowContactInfoActivity extends AppCompatActivity {
                 (new MainActivity()).removeContact(pos);
             }
         });
-
     }
-
 }
 
+ */
+
+/*
+    Goes in MainActivity.java file
+
+       public void onNameClick(int position) {
+        if (position != RecyclerView.NO_POSITION) {
+            Contact contact = list.get(position);
+            ContactViewDialog cvDialog = new ContactViewDialog(contact, position);
+            cvDialog.show(getSupportFragmentManager(), "");
+        }
+
+        // NOTE: code below is left intentionally commented for future reference
+        works with ShowContactInfoActivity.class activity file
+
+       // Intent intent = new Intent(this, AddContactDialog.class);
+        Intent intent = new Intent(this, ShowContactInfoActivity.class);
+
+        intent.putExtra("NAME", list.get(position).getName());
+       // Log.d("Get String method", intent.getStringExtra("NAME"));
+        intent.putExtra("PHONE", list.get(position).getPhone());
+        intent.putExtra("EMAIL", list.get(position).getEmail());
+        intent.putExtra("STREET", list.get(position).getAddress());
+        intent.putExtra("CITY", list.get(position).getCity());
+        intent.putExtra("STATE", list.get(position).getState());
+        intent.putExtra("ZIP", list.get(position).getZip()); // number type
+        intent.putExtra("CONTACTTYPE", list.get(position).getContacttype());
+
+        // pass the position and in ShowContactInfoActitivity, remove it.
+        position = position;
+        intent.putExtra("POSITION", position);
+        startActivity(intent);
+
+    }
  */
 
 
