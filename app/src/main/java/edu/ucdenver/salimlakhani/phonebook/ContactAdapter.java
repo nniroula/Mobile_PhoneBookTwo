@@ -121,29 +121,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ListItem
         }
 
         public void onClick (View view) {
-            // F
-
             int pos = getAdapterPosition();
-//            interf.onNameClick(pos);
             mainActivity.onNameClick(pos);
 
-            Log.i("Info", "MSG: onClick ContactAdapter clicked here .........................");
+           // Log.i("Info", "MSG: onClick ContactAdapter clicked here .........................");
 
-//            if(interf != null){
-//                int pos = getAdapterPosition();
-//
-//                //  check that Recycler view position is valid
-//                if(pos != RecyclerView.NO_POSITION){
-//                    interf.onNameClick(pos);
-//                }
-//            }
-
-            //        Intent intent = new Intent(this, AddContactDialog.class);
-//            Intent intent;
-//            intent = new Intent(this, AddContactDialog.class);
-//            //intent.putExtra("Name", list.get(position).getName());
-//
-//            ContextCompat.startActivity(intent);
 
         }
     }

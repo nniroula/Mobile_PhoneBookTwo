@@ -1,18 +1,30 @@
+
+/*
 package edu.ucdenver.salimlakhani.phonebook;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.google.android.material.internal.ContextUtils.getActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.BundleCompat;
+import androidx.fragment.app.DialogFragment;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import edu.ucdenver.salimlakhani.phonebook.databinding.ActivityMainBinding;
 
 public class ShowContactInfoActivity extends AppCompatActivity {
+//public class ShowContactInfoDialog extends DialogFragment {
 
-    private ActivityMainBinding binding;
+    // private ActivityMainBinding binding;
     private TextView textViewName;
     private TextView textViewPhone;
     private TextView textViewEmail;
@@ -22,14 +34,15 @@ public class ShowContactInfoActivity extends AppCompatActivity {
     private TextView textViewZip;
     private TextView textViewType;
 
+    Intent intent = getIntent();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_contact_info);
 
-
-        // data from intent
+        // receive data from intent
         textViewName = findViewById(R.id.textViewName);
         textViewPhone = findViewById(R.id.textViewPhone);
         textViewEmail = findViewById(R.id.textViewEmail);
@@ -42,48 +55,54 @@ public class ShowContactInfoActivity extends AppCompatActivity {
         // get the intent using getIntent() method
         Intent intent = getIntent();
 
-        // get values
+        // get values using intent
         String name = intent.getStringExtra("NAME");
-        Log.d("Get String method in SHow", "MSG: SHOWContactActivity intent ..." + name);
+        //Log.d("Get String method in SHow", "MSG: SHOWContactActivity intent ..." + name);
         String phone = intent.getStringExtra("PHONE");
         String email = intent.getStringExtra("EMAIL");
         String street = intent.getStringExtra("STREET");
         String city = intent.getStringExtra("CITY");
         String state = intent.getStringExtra("STATE");
         String zip = intent.getStringExtra("ZIP");
-        //String zip = String.valueOf(Integer.parseInt(intent.getStringExtra("ZIP")));
-        //int zip = intent.getIntExtra("ZIP", 00000);
         String contactType = intent.getStringExtra("CONTACTTYPE");
 
-        Log.d("info", "MSG: Zip value " + zip);
+       // set values using intent
         textViewName.setText(name);
         textViewPhone.setText(phone);
         textViewEmail.setText(email);
         textViewStreet.setText(street);
         textViewCity.setText(city);
         textViewState.setText(state);
-//        if(zip >= 0) textViewZip.setText(zip);
         textViewZip.setText(zip);
         textViewType.setText(contactType);
 
+        // delete button
+
+        // get delete button - findviewbyId
+        // use list method delete to delete a contact, and dismiss()
+
+        /*
+       // Contact contact;
+         TextView deleteBtn = findViewById(R.id.buttonDelete);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // contact = getAdapterPositon
+                // create a delete method in main activity and use it here
+
+                int pos = intent.getIntExtra("POSITION", -1);
+                Log.d("info", "MSG: POSITION is " + pos);
+               // MainActivity ma = new MainActivity();
+              //  ma.removeContact(pos);
+                (new MainActivity()).removeContact(pos);
+            }
+        });
+
     }
 
-
-//    public void displayContact(View view){
-//    public void displayContact(View view){
-//        textViewName = findViewById(R.id.textViewName);
-//        MainActivity ma;
-////        ma.getIntExtra(position)
-//        // get the intent using getIntent() method
-//        Intent intent = getIntent();
-//
-//        // get values
-//        String name = intent.getStringExtra("NAME");
-//        Log.d("Get String method in SHow", "MSG: SHOWContactActivity intent ..." + name);
-//
-//        textViewName.setText(name);
-//    }
-
-
-
 }
+
+ */
+
+
+

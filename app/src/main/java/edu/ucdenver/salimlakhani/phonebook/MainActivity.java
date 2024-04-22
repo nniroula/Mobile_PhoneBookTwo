@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Contact> list;                // modal to be stored in arraylist
 
     private ContactAdapter contactAdapter;
+    public int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,14 +94,10 @@ public class MainActivity extends AppCompatActivity {
     // C
 //    @Override
     public void onNameClick(int position) {
-        // J
+        /* works with ShowContactInfoActivity.class activity file */
+        /*
 //        Intent intent = new Intent(this, AddContactDialog.class);
         Intent intent = new Intent(this, ShowContactInfoActivity.class);
-
-        Log.i("info", "MSG: I am in MainActivity.java *************** ");
-
-        //Log.d("Debug", "MSG: position is " + position);
-        // Log.d("Debug", "MSG: get Name " + list.get(position).getName());
 
         intent.putExtra("NAME", list.get(position).getName());
        // Log.d("Get String method", intent.getStringExtra("NAME"));
@@ -109,22 +106,31 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("STREET", list.get(position).getAddress());
         intent.putExtra("CITY", list.get(position).getCity());
         intent.putExtra("STATE", list.get(position).getState());
-        intent.putExtra("ZIP", list.get(position).getZip());
-//        intent.putExtra("ZIP", Integer.parseInt(list.get(position).getZip()));
-//        intent.putExtra("ZIP", Integer.parseInt(list.get(position).getZip()));
+        intent.putExtra("ZIP", list.get(position).getZip()); // number type
         intent.putExtra("CONTACTTYPE", list.get(position).getContacttype());
 
-
-        Log.d("info", "MSG: " + list.get(position).getZip());
-
-
-//        ShowContactInfoActivity sc = new ShowContactInfoActivity();
-        //sc.displayContact();
-
-
+        // pass the position and in ShowContactInfoActitivity, remove it.
+        position = position;
+        intent.putExtra("POSITION", position);
         startActivity(intent);
+        */
 
+        if (position != RecyclerView.NO_POSITION) {
+            Contact contact = list.get(position);
+            ContactViewDialog cvDialog = new ContactViewDialog(contact, position);
+            cvDialog.show(getSupportFragmentManager(), "");
+
+        }
     }
+
+    // method to delete contact from the arraylist
+    public void removeContact(int index){
+        //list.remove(index);
+        Contact c = list.get(index);
+        list.remove(c);
+        contactAdapter.notifyDataSetChanged();
+    }
+
 
 
 } //End of class

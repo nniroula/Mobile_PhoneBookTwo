@@ -114,8 +114,8 @@ public class AddContactDialog extends DialogFragment {
                         String street = binding.textInputStreet.getText().toString();
                         String city = binding.textInputCity.getText().toString();
                         String state = binding.textInputState.getText().toString();
-                        String zip = binding.textInputZip.toString();
-                        //String zip = binding.textInputZip.getText().toString();
+                        //String zip = binding.textInputZip.toString();
+                        String zip = binding.textInputZip.getText().toString();
 
                         String contactType = "";
 

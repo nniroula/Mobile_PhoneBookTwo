@@ -30,7 +30,9 @@
         android:src="@drawable/baseline_add_circle_outline_24"
         tools:ignore="ImageContrastCheck" />
 
-    <include android:id="@+id/content"
-        layout="@layout/content_main" />
+    <include
+        android:id="@+id/content"
+        layout="@layout/content_main"
+        android:layout_height="663dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
