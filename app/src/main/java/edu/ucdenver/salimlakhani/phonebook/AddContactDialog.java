@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
-
 import edu.ucdenver.salimlakhani.phonebook.databinding.DialogAddContactBinding;
 
 public class AddContactDialog extends DialogFragment {
@@ -48,7 +46,6 @@ public class AddContactDialog extends DialogFragment {
                             else if (binding.radioButtonFriend.isChecked())
                                 contactType = "friend";
 
-
                             Contact contact = new Contact (name, phone, email, street, city, state, zip, contactType);
 
                             MainActivity mainActivity = (MainActivity) getActivity();
@@ -58,7 +55,6 @@ public class AddContactDialog extends DialogFragment {
 
                         }
                         else if (id == R.id.action_clear) {
-
                             binding.textInputName.setText("");
                             binding.textInputPhone.setText("");
                             binding.textInputEmail.setText("");
@@ -105,10 +101,8 @@ public class AddContactDialog extends DialogFragment {
 
                         binding.radioButtonBusiness.setChecked(true);
                         binding.textInputName.requestFocus();
-
                     }
                 }
-
         );
 
         binding.buttonSave.setOnClickListener(
@@ -133,21 +127,16 @@ public class AddContactDialog extends DialogFragment {
                         else if (binding.radioButtonFriend.isChecked())
                             contactType = "friend";
 
-
                         Contact contact = new Contact (name, phone, email, street, city, state, zip, contactType);
 
                         MainActivity mainActivity = (MainActivity) getActivity();
                         mainActivity.addContact (contact);
 
                         dismiss();
-
-
                     }
                 }
         );
 
-
         return builder.create();
-
     }
 }
